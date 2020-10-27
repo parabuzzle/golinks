@@ -17,7 +17,7 @@ npm install
 
 edit `.env`
 
-setup the database (schema is found in `.db`)
+setup the database (schema is found in `./db`)
 
 # Running
 
