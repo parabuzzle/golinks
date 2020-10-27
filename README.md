@@ -11,8 +11,13 @@ https://nextjs.org/docs
 ```
 git clone https://github.com/parabuzzle/golinks.git
 cd golinks
+cp .env.example .env
 npm install
 ```
+
+edit `.env`
+
+setup the database (schema is found in `.db`)
 
 # Running
 
