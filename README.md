@@ -1,7 +1,7 @@
-Next.js Material-UI starter
+GoLinks
 ===
 
-A nice starting point.
+A Simple GoLinks built in Next.js with Okta SSO
 
 https://nextjs.org/docs
 
@@ -9,8 +9,8 @@ https://nextjs.org/docs
 # Setup
 
 ```
-git clone https://github.com/parabuzzle/nextjs-materialui-starter.git
-cd nextjs-materialui-starter
+git clone https://github.com/parabuzzle/golinks.git
+cd golinks
 npm install
 ```
 
@@ -18,4 +18,10 @@ npm install
 
 ```
 npm run dev
+```
+
+# Running Production Server
+
+```
+npm run express
 ```
