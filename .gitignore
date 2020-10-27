@@ -31,4 +31,4 @@ yarn-error.log*
 .env
 
 # runfiles
-./run_container.sh
+run_container.sh
