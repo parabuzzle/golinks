@@ -171,7 +171,7 @@ export default async (req, res) => {
           return ret
         }).then(
           (link) => {
-            response.status(200).json(link)
+            response.status(201).json(link)
           },
           (reason) => {
             if (reason.code === '23505') {
