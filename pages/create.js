@@ -79,7 +79,7 @@ export async function getServerSideProps(ctx) {
   const req = ctx.req
   const token = await jwt.getToken({ req, secret, raw: false })
   const res = await authedFetch(ctx, '/api/links')
-  if (res.res.status === 201) {
+  if (res.res.status === 200) {
     return {
       props: {
         link: res.data,
