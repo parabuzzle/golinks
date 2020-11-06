@@ -18,11 +18,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Create({ link, notFound, token }) {
-  const api_host = process.env.API_HOST
   const router = useRouter()
   const handleSubmit = (values) => (event) => {
     const bearer = 'Bearer ' + token
-    const url = api_host + '/api/links/' + values.name
+    const url = '/api/links/' + values.name
     const res = fetch(url, {
       headers: { Authorization: bearer, 'Content-Type': 'application/json' },
       method: 'POST',

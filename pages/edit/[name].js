@@ -20,11 +20,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Edit({ link, notFound, token, name, logs }) {
   const router = useRouter()
-  const api_host = process.env.API_HOST
 
   const handleSubmit = (values) => (event) => {
     const bearer = 'Bearer ' + token
-    const url = api_host + '/api/links/' + values.name
+    const url = '/api/links/' + values.name
     const res = fetch(url, {
       headers: { Authorization: bearer, 'Content-Type': 'application/json' },
       method: 'PUT',
@@ -43,7 +42,7 @@ export default function Edit({ link, notFound, token, name, logs }) {
 
   const handleDelete = (name) => (event) => {
     const bearer = 'Bearer ' + token
-    const url = api_host + '/api/links/' + name
+    const url = '/api/links/' + name
     const res = fetch(url, {
       headers: { Authorization: bearer, 'Content-Type': 'application/json' },
       method: 'DELETE',

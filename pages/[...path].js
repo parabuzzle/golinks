@@ -61,6 +61,7 @@ export async function getServerSideProps(ctx) {
       },
     }
   } else {
+    ctx.res.statusCode = res.res.status
     return {
       props: {
         path: path,

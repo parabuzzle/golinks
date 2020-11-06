@@ -9,7 +9,6 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import { makeStyles } from '@material-ui/core/styles'
 
 const randwords = randomWords(100)
-const host = process.env.API_HOST
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function EditLink(props) {
+  const baseUrl = window.location.origin
+
   const classes = useStyles()
   const link = props.link
   const [values, setValues] = React.useState({
@@ -70,7 +71,7 @@ export default function EditLink(props) {
       r = r.replace(reg, words[idx])
     })
     return {
-      link: process.env.API_HOST + '/' + values.name + '/' + words.join('/'),
+      link: baseUrl + '/' + values.name + '/' + words.join('/'),
       regex: r,
     }
   }
@@ -155,7 +156,7 @@ export default function EditLink(props) {
             <Paper className={classes.paper}>
               <h3>How Your Link Works</h3>
               <p className={classes.p}>
-                {host}/{values.name} will redirect to {values.destination}
+                {baseUrl}/{values.name} will redirect to {values.destination}
               </p>
 
               {values.regex_destination && (
