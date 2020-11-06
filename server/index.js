@@ -1,3 +1,6 @@
+const globalAgent = require('global-agent');
+globalAgent.bootstrap();
+
 const express = require('express');
 const next = require('next');
 const env = process.env.NODE_ENV || 'production';
