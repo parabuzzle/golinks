@@ -7,6 +7,7 @@ const env = process.env.NODE_ENV || 'production';
 const dev = env !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const host = process.env.HOST || "0.0.0.0";
 const port = process.env.PORT || 3000;
 const promMid = require('express-prometheus-middleware');
 
@@ -23,9 +24,9 @@ const promMid = require('express-prometheus-middleware');
     server.all("*", (req, res) => {
       return handle(req, res);
     });
-    server.listen(port, (err) => {
+    server.listen(port, host, (err) => {
       if (err) throw err;
-      console.log(`> Ready on localhost:${port} - env ${env}`);
+      console.log(`> Ready on ${host}:${port} - env ${env}`);
     });
   } catch (e) {
     console.error(e);

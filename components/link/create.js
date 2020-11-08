@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 
 const randwords = randomWords(100)
-const host = process.env.API_HOST
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +35,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function CreateLink(props) {
+  const baseUrl = window.location.origin
+
   const classes = useStyles()
   const [values, setValues] = React.useState({
     name: '',
@@ -58,7 +59,7 @@ export default function CreateLink(props) {
       r = r.replace(reg, words[idx])
     })
     return {
-      link: process.env.API_HOST + '/' + values.name + '/' + words.join('/'),
+      link: baseUrl + '/' + values.name + '/' + words.join('/'),
       regex: r,
     }
   }
@@ -112,7 +113,7 @@ export default function CreateLink(props) {
             <Paper className={classes.paper}>
               <h3>How Your Link Will Work</h3>
               <p className={classes.p}>
-                {host}/{values.name} will redirect to {values.destination}
+                {baseUrl}/{values.name} will redirect to {values.destination}
               </p>
 
               {values.regex_destination && (
